@@ -13,39 +13,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'Victor Aba - Developer',
+	title: 'Victor Aba - Frontend Developer | React & Next.js Specialist',
 	description:
-		'Welcome to my portfolio! I am Victor Aba, a passionate developer who believes in simplicity and effectiveness. I focus on creating straightforward solutions that solve real problems, with clean code and intuitive user experiences.',
+		'Victor Aba is a passionate Frontend Developer with 3+ years of experience building modern, performant web applications using React, Next.js, TypeScript, and TailwindCSS. Available for freelance work.',
 	keywords: [
-		'Software Developer',
-		'Web Developer',
-		'Clean Code',
-		'Simple Design',
-		'JavaScript',
-		'TypeScript',
-		'React',
-		'Next.js',
-		'User Experience',
-		'Problem Solving',
-		'Effective Solutions',
-		'Web Development',
-		'Frontend Development',
-		'Backend Development',
 		'Victor Aba',
+		'Frontend Developer',
+		'Web Developer',
+		'React Developer',
+		'Next.js Developer',
+		'TypeScript',
+		'JavaScript',
+		'TailwindCSS',
+		'UI/UX',
+		'Lagos Developer',
+		'Nigeria Developer',
+		'Freelance Developer',
+		'Remote Developer',
+		'Software Engineer',
+		'Web Development',
+		'Responsive Design',
+		'Modern Web Apps',
 	],
-	authors: [{ name: 'Victor Aba' }],
+	authors: [{ name: 'Victor Aba', url: 'https://github.com/Visino2' }],
 	creator: 'Victor Aba',
 	openGraph: {
-		title: 'Victor Aba - Developer Portfolio',
-		description: 'Passionate developer creating simple and effective solutions. Explore my projects and development approach.',
+		title: 'Victor Aba - Frontend Developer | React & Next.js Specialist',
+		description: 'Passionate Frontend Developer with 3+ years of experience creating modern, performant web applications. Specializing in React, Next.js, and TypeScript.',
 		url: 'https://victoraba.dev',
-		siteName: 'Victor Aba - Portfolio',
+		siteName: 'Victor Aba Portfolio',
 		images: [
 			{
 				url: '/og-image.jpg',
 				width: 1200,
 				height: 630,
-				alt: 'Victor Aba - Developer Portfolio',
+				alt: 'Victor Aba - Frontend Developer Portfolio',
 			},
 		],
 		locale: 'en_US',
@@ -53,9 +55,9 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Victor Aba - Developer',
-		description: 'Passionate developer creating simple and effective solutions. Explore my projects and development approach.',
-		creator: '@victoraba', 
+		title: 'Victor Aba - Frontend Developer',
+		description: 'Passionate Frontend Developer specializing in React, Next.js & TypeScript. Building modern web experiences.',
+		creator: '@smithvictor_2',
 		images: ['/og-image.jpg'],
 	},
 	robots: {
@@ -69,6 +71,14 @@ export const metadata: Metadata = {
 			'max-snippet': -1,
 		},
 	},
+	verification: {
+		// Add your verification codes when you have them
+		// google: 'your-google-verification-code',
+		// yandex: 'your-yandex-verification-code',
+	},
+	alternates: {
+		canonical: 'https://victoraba.dev',
+	},
 };
 
 export default function RootLayout({
@@ -77,7 +87,17 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" className="scroll-smooth">
+			<head>
+				{/* Font Awesome for social icons */}
+				<link
+					rel="stylesheet"
+					href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+					integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+					crossOrigin="anonymous"
+					referrerPolicy="no-referrer"
+				/>
+			</head>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				{children}
 			</body>
