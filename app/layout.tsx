@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://victoraba.dev'),
 	title: 'Victor Aba - Frontend Developer | React & Next.js Specialist',
 	description:
 		'Victor Aba is a passionate Frontend Developer with 3+ years of experience building modern, performant web applications using React, Next.js, TypeScript, and TailwindCSS. Available for freelance work.',
