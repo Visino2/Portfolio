@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Code2, Palette, Database, Settings, Lightbulb, Award } from "lucide-react";
+import { Code2, Palette, Database, Settings, Lightbulb, Award, Smartphone } from "lucide-react";
 
 export default function SkillsSection() {
 	const skillCategories = [
@@ -14,6 +14,15 @@ export default function SkillsSection() {
 				{ name: "TypeScript", level: 85, years: "2+ years" },
 				{ name: "JavaScript (ES6+)", level: 95, years: "3+ years" },
 				{ name: "HTML5/CSS3", level: 95, years: "4+ years" },
+			]
+		},
+		{
+			title: "Mobile Development",
+			icon: <Smartphone className="w-6 h-6" />,
+			color: "pink",
+			skills: [
+				{ name: "React Native (Expo)", level: 85, years: "2+ years" },
+				{ name: "Flutter", level: 80, years: "1+ year" },
 			]
 		},
 		{
@@ -68,6 +77,7 @@ export default function SkillsSection() {
 			purple: { bg: "bg-purple-500/10", border: "border-purple-500/20", text: "text-purple-400", fill: "bg-purple-500" },
 			green: { bg: "bg-green-500/10", border: "border-green-500/20", text: "text-green-400", fill: "bg-green-500" },
 			orange: { bg: "bg-orange-500/10", border: "border-orange-500/20", text: "text-orange-400", fill: "bg-orange-500" },
+			pink: { bg: "bg-pink-500/10", border: "border-pink-500/20", text: "text-pink-400", fill: "bg-pink-500" },
 			yellow: { bg: "bg-yellow-500/10", border: "border-yellow-500/20", text: "text-yellow-400", fill: "bg-yellow-500" },
 		};
 		return colors[color] || colors.blue;
@@ -137,7 +147,7 @@ export default function SkillsSection() {
 													{skill.years}
 												</span>
 											</div>
-											
+
 											{/* Progress Bar */}
 											<div className="relative h-2 bg-gray-700 rounded-full overflow-hidden">
 												<motion.div
@@ -148,7 +158,7 @@ export default function SkillsSection() {
 													className={`absolute top-0 left-0 h-full ${colors.fill} rounded-full`}
 												/>
 											</div>
-											
+
 											{/* Proficiency Label */}
 											<div className="flex justify-end mt-1">
 												<span className={`text-xs ${colors.text} font-medium`}>

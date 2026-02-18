@@ -61,14 +61,14 @@ export default function ProjectsSection() {
 		{
 			title: 'Money Transfer Platform',
 			description: 'A secure peer-to-peer money transfer application with instant transactions, multi-currency support, and transaction history tracking.',
-            image: '/mooncake.png',
+			image: '/mooncake.png',
 			liveLink: 'https://jovial-mooncake-8e43f7.netlify.app/',
 			githubLink: 'https://github.com/Visino2/ETRAN',
-			tech:  ['React', 'Payment API', 'Security', 'TailwindCSS'],
+			tech: ['React', 'Payment API', 'Security', 'TailwindCSS'],
 			metrics: {
 				security: '256-bit encryption',
-                transactions: '1000+ daily transfers',
-                speed: 'Instant processing'
+				transactions: '1000+ daily transfers',
+				speed: 'Instant processing'
 			}
 		},
 		{
@@ -82,6 +82,19 @@ export default function ProjectsSection() {
 				productivity: '35% productivity boost',
 				teams: '50+ active teams',
 				tasks: '10K+ tasks completed'
+			}
+		},
+		{
+			title: 'ContentQ - Content Planner',
+			description: 'An app built to help content creators, digital marketers, and anyone building a personal brand keep their content ideas organized in one place.',
+			image: '/contentq-placeholder.png',
+			liveLink: 'https://contentq.me/',
+			githubLink: '#',
+			tech: ['React Native', 'Expo', 'Flutter'],
+			metrics: {
+				downloads: '1k+ Downloads',
+				users: 'Active Community',
+				platform: 'Android & iOS (Coming Soon)'
 			}
 		},
 	];
@@ -101,7 +114,7 @@ export default function ProjectsSection() {
 						Featured Projects
 					</h2>
 					<p className="text-gray-400 text-lg max-w-2xl mx-auto">
-						A selection of projects showcasing my expertise in modern web development, 
+						A selection of projects showcasing my expertise in modern web development,
 						from concept to deployment
 					</p>
 				</motion.div>
@@ -119,14 +132,14 @@ export default function ProjectsSection() {
 						>
 							{/* Project Image */}
 							<div className="relative aspect-video bg-gray-700 overflow-hidden">
-								<Image 
-									src={project.image} 
-									alt={project.title} 
-									fill 
-									className="object-cover group-hover:scale-110 transition-transform duration-500" 
+								<Image
+									src={project.image}
+									alt={project.title}
+									fill
+									className="object-cover group-hover:scale-110 transition-transform duration-500"
 								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60" />
-								
+
 								{/* Hover Overlay with Links */}
 								<div className="absolute inset-0 bg-gray-900/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
 									<a
@@ -157,7 +170,7 @@ export default function ProjectsSection() {
 								<h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
 									{project.title}
 								</h3>
-								
+
 								<p className="text-gray-300 mb-4 text-sm leading-relaxed">
 									{project.description}
 								</p>
