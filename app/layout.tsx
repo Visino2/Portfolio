@@ -14,15 +14,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://victoraba.dev'),
-	title: 'Victor Aba - Frontend Developer | React & Next.js Specialist',
+	title: 'Victor Aba - Mobile App Developer | Frontend Engineer | React Native & Next.js',
 	description:
-		'Victor Aba is a passionate Frontend Developer with 3+ years of experience building modern, performant web applications using React, Next.js, TypeScript, and TailwindCSS. Available for freelance work.',
+		'Victor Aba is a React Native Mobile Engineer with 2+ years of experience building scalable, high-performance cross-platform applications. Specializing in React Native, React, and Next.js. Available for work.',
 	keywords: [
 		'Victor Aba',
-		'Frontend Developer',
-		'Web Developer',
+		'Mobile App Developer',
+		'Frontend Engineer',
+		'React Native Developer',
 		'React Developer',
 		'Next.js Developer',
+		'Expo Developer',
+		'Cross-Platform Mobile Developer',
 		'TypeScript',
 		'JavaScript',
 		'TailwindCSS',
@@ -39,8 +42,8 @@ export const metadata: Metadata = {
 	authors: [{ name: 'Victor Aba', url: 'https://github.com/Visino2' }],
 	creator: 'Victor Aba',
 	openGraph: {
-		title: 'Victor Aba - Frontend Developer | React & Next.js Specialist',
-		description: 'Passionate Frontend Developer with 3+ years of experience creating modern, performant web applications. Specializing in React, Next.js, and TypeScript.',
+		title: 'Victor Aba - Mobile App Developer | Frontend Engineer',
+		description: 'React Native Mobile Engineer with 2+ years of experience building scalable cross-platform applications. Specializing in React Native, React, and Next.js.',
 		url: 'https://victoraba.dev',
 		siteName: 'Victor Aba Portfolio',
 		images: [
@@ -56,8 +59,8 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Victor Aba - Frontend Developer',
-		description: 'Passionate Frontend Developer specializing in React, Next.js & TypeScript. Building modern web experiences.',
+		title: 'Victor Aba - Mobile App Developer | Frontend Engineer',
+		description: 'React Native Mobile Engineer specializing in cross-platform apps, React & Next.js. Building scalable mobile and web experiences.',
 		creator: '@smithvictor_2',
 		images: ['/og-image.jpg'],
 	},
