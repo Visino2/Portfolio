@@ -2,10 +2,33 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, TrendingUp, Users, Zap } from 'lucide-react';
+import { ExternalLink, TrendingUp, Users, Zap, Smartphone } from 'lucide-react';
+
+function GithubIcon({ className }: { className?: string }) {
+	return (
+		<svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+			<path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+		</svg>
+	);
+}
 
 export default function ProjectsSection() {
 	const projects = [
+		{
+			title: 'Converf – Construction Management Platform',
+			description: 'Full-stack mobile app for construction project management, currently in internal testing on iOS & Android. Two-sided marketplace connecting project owners and contractors with bid management, daily site reports, QAQC audits, ball-in-court accountability workflow, AI-powered project health advisory, and subscription billing with Professional plans.',
+			image: '/converf.png',
+			liveLink: '#',
+			githubLink: '#',
+			platform: 'mobile' as const,
+			status: 'testing' as const,
+			tech: ['React Native', 'Expo', 'Firebase', 'TypeScript', 'REST APIs'],
+			metrics: {
+				projects: '22+ active projects',
+				users: 'iOS & Android',
+				features: 'AI advisory system'
+			}
+		},
 		{
 			title: 'Audiophile E-Commerce',
 			description: 'A premium audio equipment e-commerce platform with smooth animations, shopping cart functionality, and checkout flow.',
@@ -14,9 +37,9 @@ export default function ProjectsSection() {
 			githubLink: 'https://github.com/Visino2/audiophile',
 			tech: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
 			metrics: {
-				performance: '95% Lighthouse score',
-				users: '500+ monthly visitors',
-				conversion: '3.2% conversion rate'
+				performance: '95 Lighthouse score',
+				cart: '7 product categories',
+				checkout: 'Multi-step checkout'
 			}
 		},
 		{
@@ -40,9 +63,9 @@ export default function ProjectsSection() {
 			githubLink: 'https://github.com/Visino2/Resturant-project',
 			tech: ['React', 'JavaScript', 'CSS3', 'Animations'],
 			metrics: {
-				engagement: '4.5min avg session',
-				bounce: '23% bounce rate',
-				mobile: '89% mobile traffic'
+				ui: 'Animated page transitions',
+				booking: 'Built-in reservation form',
+				responsive: 'Fully responsive layout'
 			}
 		},
 		{
@@ -53,9 +76,9 @@ export default function ProjectsSection() {
 			githubLink: 'https://github.com/Visino2/property-Management',
 			tech: ['React', 'Firebase', 'Chart.js', 'TailwindCSS'],
 			metrics: {
-				efficiency: '40% faster workflow',
-				users: '200+ properties managed',
-				uptime: '99.9% uptime'
+				db: 'Firebase real-time DB',
+				analytics: 'Chart.js dashboards',
+				auth: 'Role-based auth'
 			}
 		},
 		{
@@ -67,8 +90,8 @@ export default function ProjectsSection() {
 			tech: ['React', 'Payment API', 'Security', 'TailwindCSS'],
 			metrics: {
 				security: '256-bit encryption',
-				transactions: '1000+ daily transfers',
-				speed: 'Instant processing'
+				currency: 'Multi-currency support',
+				history: 'Transaction history'
 			}
 		},
 		{
@@ -79,22 +102,22 @@ export default function ProjectsSection() {
 			githubLink: 'https://github.com/Visino2/property-Management',
 			tech: ['Next.js', 'TypeScript', 'DnD Kit', 'PostgreSQL'],
 			metrics: {
-				productivity: '35% productivity boost',
-				teams: '50+ active teams',
-				tasks: '10K+ tasks completed'
+				board: 'Drag-drop Kanban board',
+				updates: 'Real-time live updates',
+				type: 'TypeScript strict mode'
 			}
 		},
 		{
 			title: 'ContentQ - Content Planner',
-			description: 'An app built to help content creators, digital marketers, and anyone building a personal brand keep their content ideas organized in one place.',
-			image: '/contentq-placeholder.png',
+			description: 'An app built to help content creators, digital marketers, and anyone building a personal brand keep their content ideas organised in one place.',
+			image: '/contentq.png',
 			liveLink: 'https://contentq.me/',
 			githubLink: '#',
-			tech: ['React Native', 'Expo', 'Flutter'],
+			tech: ['React Native', 'Expo', 'TypeScript', 'REST APIs'],
 			metrics: {
 				downloads: '1k+ Downloads',
-				users: 'Active Community',
-				platform: 'Android & iOS (Coming Soon)'
+				stack: 'Expo cross-platform',
+				os: 'Android & iOS'
 			}
 		},
 	];
@@ -140,17 +163,35 @@ export default function ProjectsSection() {
 								/>
 								<div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60" />
 
+								{/* Badges */}
+								{'platform' in project && project.platform === 'mobile' && (
+									<div className="absolute top-3 left-3 flex items-center gap-2">
+										<div className="flex items-center gap-1.5 px-2.5 py-1 bg-teal-500/20 border border-teal-500/30 rounded-full">
+											<Smartphone className="w-3 h-3 text-teal-400" />
+											<span className="text-teal-400 text-xs font-medium">Mobile App</span>
+										</div>
+										{'status' in project && project.status === 'testing' && (
+											<div className="flex items-center gap-1.5 px-2.5 py-1 bg-yellow-500/20 border border-yellow-500/30 rounded-full">
+												<span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+												<span className="text-yellow-400 text-xs font-medium">In Testing</span>
+											</div>
+										)}
+									</div>
+								)}
+
 								{/* Hover Overlay with Links */}
 								<div className="absolute inset-0 bg-gray-900/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-									<a
-										href={project.liveLink}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors transform hover:scale-110"
-										title="View Live Site"
-									>
-										<ExternalLink className="w-6 h-6" />
-									</a>
+									{project.liveLink !== '#' && (
+										<a
+											href={project.liveLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors transform hover:scale-110"
+											title="View Live Site"
+										>
+											<ExternalLink className="w-6 h-6" />
+										</a>
+									)}
 									{project.githubLink !== '#' && (
 										<a
 											href={project.githubLink}
@@ -159,7 +200,7 @@ export default function ProjectsSection() {
 											className="p-3 bg-gray-700 text-white rounded-full hover:bg-gray-600 transition-colors transform hover:scale-110"
 											title="View Code"
 										>
-											<Github className="w-6 h-6" />
+											<GithubIcon className="w-6 h-6" />
 										</a>
 									)}
 								</div>
@@ -213,15 +254,27 @@ export default function ProjectsSection() {
 
 								{/* Action Buttons */}
 								<div className="flex gap-3 mt-4">
-									<a
-										href={project.liveLink}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="flex-1 py-2 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm flex items-center justify-center gap-2"
-									>
-										View Live
-										<ExternalLink className="w-4 h-4" />
-									</a>
+									{project.liveLink !== '#' ? (
+										<a
+											href={project.liveLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="flex-1 py-2 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm flex items-center justify-center gap-2"
+										>
+											View Live
+											<ExternalLink className="w-4 h-4" />
+										</a>
+									) : 'status' in project && project.status === 'testing' ? (
+										<span className="flex-1 py-2 bg-yellow-500/10 text-yellow-400 text-center rounded-lg font-medium text-sm flex items-center justify-center gap-2 cursor-default border border-yellow-500/20">
+											<span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+											Internal Testing
+										</span>
+									) : (
+										<span className="flex-1 py-2 bg-gray-700/50 text-gray-500 text-center rounded-lg font-medium text-sm flex items-center justify-center gap-2 cursor-default border border-gray-700">
+											<Smartphone className="w-4 h-4" />
+											Mobile App
+										</span>
+									)}
 									{project.githubLink !== '#' && (
 										<a
 											href={project.githubLink}
@@ -229,7 +282,7 @@ export default function ProjectsSection() {
 											rel="noopener noreferrer"
 											className="px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors font-medium text-sm flex items-center gap-2"
 										>
-											<Github className="w-4 h-4" />
+											<GithubIcon className="w-4 h-4" />
 											Code
 										</a>
 									)}
@@ -256,7 +309,7 @@ export default function ProjectsSection() {
 						rel="noopener noreferrer"
 						className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors border border-gray-700"
 					>
-						<Github className="w-5 h-5" />
+						<GithubIcon className="w-5 h-5" />
 						View All Projects on GitHub
 					</a>
 				</motion.div>

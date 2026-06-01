@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home, Code, Briefcase, Mail, ArrowUp } from 'lucide-react';
+import { Menu, X, Home, Code, Briefcase, Mail, ArrowUp, User } from 'lucide-react';
 
 export default function Navigation() {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -31,6 +31,7 @@ export default function Navigation() {
 
 	const navItems = [
 		{ id: 'home', label: 'Home', icon: Home },
+		{ id: 'about', label: 'About', icon: User },
 		{ id: 'skills', label: 'Skills', icon: Code },
 		{ id: 'projects', label: 'Projects', icon: Briefcase },
 		{ id: 'contact', label: 'Contact', icon: Mail },

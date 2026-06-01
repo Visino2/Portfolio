@@ -2,91 +2,96 @@
 import { motion } from "framer-motion";
 import { Code2, Palette, Database, Settings, Lightbulb, Award, Smartphone } from "lucide-react";
 
+const skillCategories = [
+	{
+		title: "Mobile Development",
+		icon: Smartphone,
+		color: "pink",
+		skills: [
+			{ name: "React Native", years: "2+ yrs" },
+			{ name: "Expo", years: "2+ yrs" },
+			{ name: "React Navigation", years: "2+ yrs" },
+			{ name: "Push Notifications", years: "1+ yr" },
+			{ name: "Flutter", years: "1+ yr" },
+		],
+	},
+	{
+		title: "Frontend Development",
+		icon: Code2,
+		color: "blue",
+		skills: [
+			{ name: "React.js", years: "3+ yrs" },
+			{ name: "Next.js", years: "2+ yrs" },
+			{ name: "TypeScript", years: "2+ yrs" },
+			{ name: "JavaScript (ES6+)", years: "3+ yrs" },
+			{ name: "HTML5 / CSS3", years: "3+ yrs" },
+		],
+	},
+	{
+		title: "Styling & Design",
+		icon: Palette,
+		color: "purple",
+		skills: [
+			{ name: "TailwindCSS", years: "2+ yrs" },
+			{ name: "Framer Motion", years: "1+ yr" },
+			{ name: "Responsive Design", years: "3+ yrs" },
+			{ name: "Figma to Code", years: "2+ yrs" },
+			{ name: "CSS Animations", years: "2+ yrs" },
+		],
+	},
+	{
+		title: "State & Data",
+		icon: Database,
+		color: "green",
+		skills: [
+			{ name: "Redux Toolkit", years: "2+ yrs" },
+			{ name: "Context API", years: "2+ yrs" },
+			{ name: "Firebase", years: "1+ yr" },
+			{ name: "REST APIs", years: "3+ yrs" },
+			{ name: "Async Storage", years: "1+ yr" },
+		],
+	},
+	{
+		title: "Tools & Workflow",
+		icon: Settings,
+		color: "orange",
+		skills: [
+			{ name: "Git & GitHub", years: "3+ yrs" },
+			{ name: "Vercel / Netlify", years: "2+ yrs" },
+			{ name: "VS Code", years: "3+ yrs" },
+			{ name: "Xcode / Android Studio", years: "1+ yr" },
+			{ name: "Chrome DevTools", years: "3+ yrs" },
+		],
+	},
+	{
+		title: "Best Practices",
+		icon: Lightbulb,
+		color: "yellow",
+		skills: [
+			{ name: "Performance Optimisation", years: "2+ yrs" },
+			{ name: "Component Architecture", years: "2+ yrs" },
+			{ name: "Code Splitting", years: "1+ yr" },
+			{ name: "Accessibility (A11y)", years: "1+ yr" },
+			{ name: "Agile / Scrum", years: "1+ yr" },
+		],
+	},
+];
+
+const colorMap: Record<string, { bg: string; border: string; text: string; iconBg: string; tag: string }> = {
+	blue:   { bg: "bg-blue-500/5",   border: "border-blue-500/20",   text: "text-blue-400",   iconBg: "bg-blue-500/10",   tag: "bg-blue-500/10 text-blue-300 border-blue-500/20" },
+	purple: { bg: "bg-purple-500/5", border: "border-purple-500/20", text: "text-purple-400", iconBg: "bg-purple-500/10", tag: "bg-purple-500/10 text-purple-300 border-purple-500/20" },
+	green:  { bg: "bg-green-500/5",  border: "border-green-500/20",  text: "text-green-400",  iconBg: "bg-green-500/10",  tag: "bg-green-500/10 text-green-300 border-green-500/20" },
+	orange: { bg: "bg-orange-500/5", border: "border-orange-500/20", text: "text-orange-400", iconBg: "bg-orange-500/10", tag: "bg-orange-500/10 text-orange-300 border-orange-500/20" },
+	pink:   { bg: "bg-pink-500/5",   border: "border-pink-500/20",   text: "text-pink-400",   iconBg: "bg-pink-500/10",   tag: "bg-pink-500/10 text-pink-300 border-pink-500/20" },
+	yellow: { bg: "bg-yellow-500/5", border: "border-yellow-500/20", text: "text-yellow-400", iconBg: "bg-yellow-500/10", tag: "bg-yellow-500/10 text-yellow-300 border-yellow-500/20" },
+};
+
 export default function SkillsSection() {
-	const skillCategories = [
-		{
-			title: "Frontend Development",
-			icon: <Code2 className="w-6 h-6" />,
-			color: "blue",
-			skills: [
-				{ name: "React.js", level: 90, years: "3+ years" },
-				{ name: "Next.js", level: 85, years: "2+ years" },
-				{ name: "TypeScript", level: 85, years: "2+ years" },
-				{ name: "JavaScript (ES6+)", level: 95, years: "3+ years" },
-				{ name: "HTML5/CSS3", level: 95, years: "4+ years" },
-			]
-		},
-		{
-			title: "Mobile Development",
-			icon: <Smartphone className="w-6 h-6" />,
-			color: "pink",
-			skills: [
-				{ name: "React Native (Expo)", level: 85, years: "2+ years" },
-				{ name: "Flutter", level: 80, years: "1+ year" },
-			]
-		},
-		{
-			title: "Styling & Design",
-			icon: <Palette className="w-6 h-6" />,
-			color: "purple",
-			skills: [
-				{ name: "TailwindCSS", level: 90, years: "2+ years" },
-				{ name: "Framer Motion", level: 80, years: "1+ year" },
-				{ name: "Responsive Design", level: 95, years: "3+ years" },
-				{ name: "Figma to Code", level: 85, years: "2+ years" },
-			]
-		},
-		{
-			title: "State & Data Management",
-			icon: <Database className="w-6 h-6" />,
-			color: "green",
-			skills: [
-				{ name: "Redux Toolkit", level: 80, years: "2+ years" },
-				{ name: "Context API", level: 85, years: "2+ years" },
-				{ name: "Firebase", level: 75, years: "1+ year" },
-				{ name: "REST APIs", level: 90, years: "3+ years" },
-			]
-		},
-		{
-			title: "Tools & Workflow",
-			icon: <Settings className="w-6 h-6" />,
-			color: "orange",
-			skills: [
-				{ name: "Git & GitHub", level: 90, years: "3+ years" },
-				{ name: "VS Code", level: 95, years: "4+ years" },
-				{ name: "Vercel/Netlify", level: 85, years: "2+ years" },
-				{ name: "Chrome DevTools", level: 90, years: "3+ years" },
-			]
-		},
-		{
-			title: "Best Practices",
-			icon: <Lightbulb className="w-6 h-6" />,
-			color: "yellow",
-			skills: [
-				{ name: "Performance Optimization", level: 85, years: "2+ years" },
-				{ name: "Code Refactoring", level: 80, years: "2+ years" },
-				{ name: "Component Architecture", level: 85, years: "2+ years" },
-				{ name: "Accessibility (A11y)", level: 75, years: "1+ year" },
-			]
-		},
-	];
-
-	const getColorClasses = (color: string) => {
-		const colors: Record<string, { bg: string; border: string; text: string; fill: string }> = {
-			blue: { bg: "bg-blue-500/10", border: "border-blue-500/20", text: "text-blue-400", fill: "bg-blue-500" },
-			purple: { bg: "bg-purple-500/10", border: "border-purple-500/20", text: "text-purple-400", fill: "bg-purple-500" },
-			green: { bg: "bg-green-500/10", border: "border-green-500/20", text: "text-green-400", fill: "bg-green-500" },
-			orange: { bg: "bg-orange-500/10", border: "border-orange-500/20", text: "text-orange-400", fill: "bg-orange-500" },
-			pink: { bg: "bg-pink-500/10", border: "border-pink-500/20", text: "text-pink-400", fill: "bg-pink-500" },
-			yellow: { bg: "bg-yellow-500/10", border: "border-yellow-500/20", text: "text-yellow-400", fill: "bg-yellow-500" },
-		};
-		return colors[color] || colors.blue;
-	};
-
 	return (
 		<section id="skills" className="bg-gray-800/50 py-20 scroll-mt-16">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-				{/* Section Header */}
+
+				{/* Header */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -98,74 +103,42 @@ export default function SkillsSection() {
 						<Award className="w-5 h-5 text-blue-400" />
 						<span className="text-blue-400 font-medium text-sm">Expertise & Proficiency</span>
 					</div>
-					<h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-						Technical Skills
-					</h2>
+					<h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">Technical Skills</h2>
 					<p className="text-gray-400 text-lg max-w-2xl mx-auto">
-						A comprehensive overview of my technical expertise and years of hands-on experience
+						Tools and technologies I use to ship production-ready products
 					</p>
 				</motion.div>
 
 				{/* Skills Grid */}
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 					{skillCategories.map((category, catIndex) => {
-						const colors = getColorClasses(category.color);
+						const c = colorMap[category.color];
+						const Icon = category.icon;
 						return (
 							<motion.div
 								key={category.title}
 								initial={{ opacity: 0, y: 30 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
-								transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-								className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300"
+								transition={{ duration: 0.5, delay: catIndex * 0.08 }}
+								className={`rounded-xl p-6 border ${c.border} ${c.bg} transition-all duration-300`}
 							>
-								{/* Category Header */}
-								<div className="flex items-center gap-3 mb-6">
-									<div className={`p-3 ${colors.bg} ${colors.border} border rounded-lg ${colors.text}`}>
-										{category.icon}
+								<div className="flex items-center gap-3 mb-5">
+									<div className={`p-2.5 ${c.iconBg} ${c.border} border rounded-lg`}>
+										<Icon className={`w-5 h-5 ${c.text}`} />
 									</div>
-									<h3 className="text-xl font-bold text-white">
-										{category.title}
-									</h3>
+									<h3 className="text-lg font-bold text-white">{category.title}</h3>
 								</div>
 
-								{/* Skills List */}
-								<div className="space-y-4">
-									{category.skills.map((skill, index) => (
-										<motion.div
+								<div className="flex flex-wrap gap-2">
+									{category.skills.map((skill) => (
+										<span
 											key={skill.name}
-											initial={{ opacity: 0, x: -20 }}
-											whileInView={{ opacity: 1, x: 0 }}
-											viewport={{ once: true }}
-											transition={{ duration: 0.4, delay: catIndex * 0.1 + index * 0.05 }}
+											className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-sm font-medium ${c.tag}`}
 										>
-											<div className="flex items-center justify-between mb-2">
-												<span className="text-gray-200 font-medium">
-													{skill.name}
-												</span>
-												<span className="text-gray-400 text-sm">
-													{skill.years}
-												</span>
-											</div>
-
-											{/* Progress Bar */}
-											<div className="relative h-2 bg-gray-700 rounded-full overflow-hidden">
-												<motion.div
-													initial={{ width: 0 }}
-													whileInView={{ width: `${skill.level}%` }}
-													viewport={{ once: true }}
-													transition={{ duration: 1, delay: catIndex * 0.1 + index * 0.05, ease: "easeOut" }}
-													className={`absolute top-0 left-0 h-full ${colors.fill} rounded-full`}
-												/>
-											</div>
-
-											{/* Proficiency Label */}
-											<div className="flex justify-end mt-1">
-												<span className={`text-xs ${colors.text} font-medium`}>
-													{skill.level >= 90 ? "Expert" : skill.level >= 80 ? "Advanced" : "Proficient"}
-												</span>
-											</div>
-										</motion.div>
+											{skill.name}
+											<span className="text-xs opacity-50 font-normal">· {skill.years}</span>
+										</span>
 									))}
 								</div>
 							</motion.div>
@@ -173,27 +146,26 @@ export default function SkillsSection() {
 					})}
 				</div>
 
-				{/* Additional Skills Badges */}
+				{/* Also familiar with */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
-					transition={{ duration: 0.6, delay: 0.3 }}
-					className="mt-12 text-center"
+					transition={{ duration: 0.6, delay: 0.2 }}
+					className="mt-10 text-center"
 				>
-					<h4 className="text-lg font-semibold text-white mb-4">
-						Also Familiar With
-					</h4>
+					<p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">
+						Also familiar with
+					</p>
 					<div className="flex flex-wrap justify-center gap-3">
-						{["Webpack", "Vite", "Jest", "Cypress", "GraphQL", "Docker", "AWS", "MongoDB"].map((tech, i) => (
+						{["Webpack", "Vite", "Jest", "GraphQL", "MongoDB", "Docker", "AWS", "Cypress"].map((tech, i) => (
 							<motion.span
 								key={tech}
 								initial={{ opacity: 0, scale: 0.8 }}
 								whileInView={{ opacity: 1, scale: 1 }}
 								viewport={{ once: true }}
-								transition={{ duration: 0.3, delay: 0.3 + i * 0.05 }}
-								whileHover={{ scale: 1.1 }}
-								className="px-4 py-2 bg-gray-700 text-gray-300 rounded-full text-sm font-medium border border-gray-600 hover:border-gray-500 hover:bg-gray-650 transition-all cursor-default"
+								transition={{ duration: 0.3, delay: i * 0.04 }}
+								className="px-4 py-2 bg-gray-800 text-gray-400 rounded-full text-sm border border-gray-700 hover:border-gray-500 hover:text-gray-300 transition-all cursor-default"
 							>
 								{tech}
 							</motion.span>
@@ -201,37 +173,31 @@ export default function SkillsSection() {
 					</div>
 				</motion.div>
 
-				{/* Soft Skills */}
+				{/* Professional skills */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
 					viewport={{ once: true }}
-					transition={{ duration: 0.6, delay: 0.4 }}
-					className="mt-12 bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-xl p-6"
+					transition={{ duration: 0.6, delay: 0.3 }}
+					className="mt-8 bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-xl p-6"
 				>
-					<h4 className="text-lg font-semibold text-white mb-4 text-center">
-						Professional Skills
-					</h4>
-					<div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-						{[
-							"Team Collaboration",
-							"Problem Solving",
-							"Agile Methodology",
-							"Code Review"
-						].map((skill, i) => (
+					<h4 className="text-base font-semibold text-white mb-4 text-center">Professional Skills</h4>
+					<div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+						{["Team Collaboration", "Problem Solving", "Agile Methodology", "Code Review"].map((skill, i) => (
 							<motion.div
 								key={skill}
 								initial={{ opacity: 0, y: 10 }}
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
-								transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
-								className="text-gray-300 font-medium"
+								transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
+								className="text-gray-300 text-sm font-medium py-2 px-3 bg-gray-800/60 rounded-lg border border-gray-700/50"
 							>
 								✓ {skill}
 							</motion.div>
 						))}
 					</div>
 				</motion.div>
+
 			</div>
 		</section>
 	);
